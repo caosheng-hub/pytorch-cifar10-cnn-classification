@@ -129,24 +129,24 @@ def evaluate(test_dataset):
 if __name__ == '__main__':
     # 1. 获取数据集.
     train_dataset, test_dataset = create_dataset()
-    # print(f'训练集: {train_dataset.data.shape}')       # (50000, 32, 32, 3)
-    # print(f'测试集: {test_dataset.data.shape}')         # (10000, 32, 32, 3)
+    print(f'训练集: {train_dataset.data.shape}')       # (50000, 32, 32, 3)
+    print(f'测试集: {test_dataset.data.shape}')         # (10000, 32, 32, 3)
     # {'airplane': 0, 'automobile': 1, 'bird': 2, 'cat': 3, 'deer': 4, 'dog': 5, 'frog': 6, 'horse': 7, 'ship': 8, 'truck': 9}
-    # print(f'数据集类别: {train_dataset.class_to_idx}')
+    print(f'数据集类别: {train_dataset.class_to_idx}')
 
     # 图像展示.
-    # plt.figure(figsize=(2, 2))
-    # plt.imshow(train_dataset.data[1111])       # 索引为1111的图像
-    # plt.title(train_dataset.targets[1111])
-    # plt.show()
+    plt.figure(figsize=(2, 2))
+    plt.imshow(train_dataset.data[1111])       # 索引为1111的图像
+    plt.title(train_dataset.targets[1111])
+    plt.show()
 
     # 2.搭建神经网络.
-    # model = ImageModel()
+    model = ImageModel()
     # 参1：模型，参2：输入维度（CHW，通道，高，宽），参3：批次大小
-    # summary(model,(3,32,32),BATCH_SIZE)
+    summary(model,(3,32,32),BATCH_SIZE)
 
     # 3.模型训练.
-    # train(train_dataset)
+    train(train_dataset)
 
     # 4.模型测试.
     evaluate(test_dataset)
